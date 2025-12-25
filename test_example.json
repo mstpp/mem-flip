@@ -1,0 +1,88 @@
+{
+  "topics_map": {
+    "math": [
+      {
+        "question": "2+2?",
+        "answer": "4"
+      },
+      {
+        "question": "Is 7 a prime number?",
+        "answer": "yes"
+      },
+      {
+        "question": "What is π approximately?",
+        "answer": "3.14159"
+      },
+      {
+        "question": "Square root of 144?",
+        "answer": "12"
+      }
+    ],
+    "science": [
+      {
+        "question": "What is H₂O?",
+        "answer": "Water"
+      },
+      {
+        "question": "Speed of light in vacuum?",
+        "answer": "299,792,458 m/s"
+      },
+      {
+        "question": "What's the powerhouse of the cell?",
+        "answer": "Mitochondria"
+      }
+    ],
+    "languages": [
+      {
+        "question": "How do you say 'hello' in Spanish?",
+        "answer": "Hola"
+      },
+      {
+        "question": "What does 'Здравствуйте' mean?",
+        "answer": "Hello (in Russian)"
+      },
+      {
+        "question": "Translate 'thank you' to Japanese",
+        "answer": "ありがとう (arigatou)"
+      }
+    ],
+    "history": [
+      {
+        "question": "When did World War II end?",
+        "answer": "1945"
+      },
+      {
+        "question": "Who was the first president of the USA?",
+        "answer": "George Washington"
+      }
+    ],
+    "programming": [
+      {
+        "question": "What does 'fn' mean in Rust?",
+        "answer": "function"
+      },
+      {
+        "question": "What's the difference between String and &str?",
+        "answer": "String is owned, &str is a borrowed string slice"
+      },
+      {
+        "question": "How do you handle errors in Rust?",
+        "answer": "Using Result<T, E> and Option<T>"
+      }
+    ],
+    "trivia": [
+      {
+        "question": "Most beautiful city?",
+        "answer": "Rio de Janeiro"
+      },
+      {
+        "question": "Tallest mountain?",
+        "answer": "Mount Everest"
+      },
+      {
+        "question": "Capital of France?",
+        "answer": "Paris"
+      }
+    ]
+  }
+}
