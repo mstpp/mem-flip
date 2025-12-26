@@ -1,21 +1,17 @@
 {
   "topics_map": {
-    "math": [
+    "languages": [
       {
-        "question": "2+2?",
-        "answer": "4"
+        "question": "How do you say 'hello' in Spanish?",
+        "answer": "Hola"
       },
       {
-        "question": "Is 7 a prime number?",
-        "answer": "yes"
+        "question": "What does 'Здравствуйте' mean?",
+        "answer": "Hello (in Russian)"
       },
       {
-        "question": "What is π approximately?",
-        "answer": "3.14159"
-      },
-      {
-        "question": "Square root of 144?",
-        "answer": "12"
+        "question": "Translate 'thank you' to Japanese",
+        "answer": "ありがとう (arigatou)"
       }
     ],
     "science": [
@@ -30,20 +26,6 @@
       {
         "question": "What's the powerhouse of the cell?",
         "answer": "Mitochondria"
-      }
-    ],
-    "languages": [
-      {
-        "question": "How do you say 'hello' in Spanish?",
-        "answer": "Hola"
-      },
-      {
-        "question": "What does 'Здравствуйте' mean?",
-        "answer": "Hello (in Russian)"
-      },
-      {
-        "question": "Translate 'thank you' to Japanese",
-        "answer": "ありがとう (arigatou)"
       }
     ],
     "history": [
@@ -68,6 +50,24 @@
       {
         "question": "How do you handle errors in Rust?",
         "answer": "Using Result<T, E> and Option<T>"
+      }
+    ],
+    "math": [
+      {
+        "question": "2+2?",
+        "answer": "4"
+      },
+      {
+        "question": "Is 7 a prime number?",
+        "answer": "yes"
+      },
+      {
+        "question": "What is π approximately?",
+        "answer": "3.14159"
+      },
+      {
+        "question": "Square root of 144?",
+        "answer": "12"
       }
     ],
     "trivia": [

@@ -12,6 +12,8 @@ use ratatui::{
 };
 use serde::{Deserialize, Serialize};
 
+static CARDS_FILE: &str = "flashcards.json";
+
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Flashcard {
     pub question: String,
@@ -28,9 +30,10 @@ fn main() -> io::Result<()> {
     terminal.clear()?;
 
     // Load topics from file, or create empty if file doesn't exist
-    let topics = match std::fs::File::open("test_example.json") {
+    let topics = match std::fs::File::open(CARDS_FILE) {
         Ok(file) => {
             let reader = std::io::BufReader::new(file);
+            // Return new empty map if file has bad data
             serde_json::from_reader(reader).unwrap_or_else(|_| Topics {
                 topics_map: HashMap::new(),
             })
@@ -429,7 +432,7 @@ impl App {
     }
 
     fn save_to_disk(&self) -> io::Result<()> {
-        let file = std::fs::File::create("test_example.json")?;
+        let file = std::fs::File::create(CARDS_FILE)?;
         serde_json::to_writer_pretty(file, &self.topics)?;
         Ok(())
     }
@@ -485,11 +488,11 @@ impl App {
             // Show empty state
             let empty_text = "No topics yet!\n\nPress 'N' to create your first topic.";
             Paragraph::new(empty_text)
-                .centered()
+                .left_aligned()
                 .block(
                     Block::bordered()
-                        .title(title.bold().into_centered_line())
-                        .title_bottom(Line::from(instructions).centered()),
+                        .title(title.bold().into_left_aligned_line())
+                        .title_bottom(Line::from(instructions).left_aligned()),
                 )
                 .render(area, buf);
             return;
@@ -514,8 +517,8 @@ impl App {
         let list = List::new(items)
             .block(
                 Block::bordered()
-                    .title(title.bold().into_centered_line())
-                    .title_bottom(Line::from(instructions).centered()),
+                    .title(title.bold().into_left_aligned_line())
+                    .title_bottom(Line::from(instructions).left_aligned()),
             )
             .highlight_style(
                 Style::default()
@@ -560,13 +563,13 @@ impl App {
                 let question_text = format!("Q: {}", card.question);
                 Paragraph::new(question_text)
                     .wrap(Wrap { trim: true })
-                    .centered()
+                    .left_aligned()
                     .block(
                         Block::bordered()
                             .title(
                                 format!(" 📝 {} {} ", topic, progress)
                                     .bold()
-                                    .into_centered_line(),
+                                    .into_left_aligned_line(),
                             )
                             .style(Style::default().fg(Color::Cyan)),
                     )
@@ -587,10 +590,10 @@ impl App {
 
                 Paragraph::new(answer_content)
                     .wrap(Wrap { trim: true })
-                    .centered()
+                    .left_aligned()
                     .block(
                         Block::bordered()
-                            .title_bottom(Line::from(instructions).centered())
+                            .title_bottom(Line::from(instructions).left_aligned())
                             .style(answer_style),
                     )
                     .render(chunks[1], buf);
@@ -601,7 +604,7 @@ impl App {
 
         // Fallback if no card found
         Paragraph::new("No cards available")
-            .centered()
+            .left_aligned()
             .block(Block::bordered())
             .render(area, buf);
     }
@@ -621,10 +624,10 @@ impl App {
         let instructions = " Press Enter to create | Esc to cancel ";
 
         Paragraph::new(text)
-            .centered()
+            .left_aligned()
             .block(
                 Block::bordered()
-                    .title(" ➕ New Topic ".bold().into_centered_line())
+                    .title(" ➕ New Topic ".bold().into_left_aligned_line())
                     .title_bottom(instructions),
             )
             .render(area, buf);
@@ -793,7 +796,7 @@ impl App {
         ];
 
         Paragraph::new(instructions)
-            .centered()
+            .left_aligned()
             .block(Block::bordered().title(format!(" 📝 Add Card to '{}' topic", topic)))
             .render(chunks[2], buf);
     }

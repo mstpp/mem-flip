@@ -13,6 +13,12 @@ pub struct Topics {
     pub topics_map: HashMap<String, Vec<Flashcard>>,
 }
 
+fn main() {
+    let s = r#"{"question": "name?", "answer":"rame"}"#;
+    let f: Flashcard = serde_json::from_str(s).unwrap();
+    println!("{f:?}");
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
