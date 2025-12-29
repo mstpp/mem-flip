@@ -335,6 +335,7 @@ impl App {
                         cards.push(flashcard);
                     }
 
+                    let _ = self.save_to_disk();
                     self.state = AppState::TopicSelection;
                 }
             }
